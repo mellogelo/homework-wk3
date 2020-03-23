@@ -2,10 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 
 //Variables
-var lowercase;
-var uppercase;
-var characters;
-var numbers;
+var lowercase = false;
+var uppercase = false;
+var characters = false;
+var numbers = false;
 var passlength = 0;
 var newpassword = "";
 var userPass = "";
@@ -29,8 +29,7 @@ generateBtn.addEventListener("click", function () {
   event.preventDefault();
   userInput();
   generateUserPass();
-  getnewPass();
-
+  alert(generateUserPass());
 });
 
 function userInput() {
@@ -62,14 +61,10 @@ function userInput() {
     if (numbers) {
       newpassword += numEl;
     }
-  };
-
-    function getnewPass() {
     for (let i = 0; i < passlength; i++) {
       userPass += newpassword.charAt(Math.floor(Math.random() * newpassword.length));
     }
     return userPass;
   };
-
 // // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
