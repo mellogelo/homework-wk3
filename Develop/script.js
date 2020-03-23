@@ -7,8 +7,8 @@ var uppercase = false;
 var characters = false;
 var numbers = false;
 var passlength = 0;
-var newpassword = "";
 var userPass = "";
+var newpassword = ""
 var upperEl = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var lowerEl = 'abcdefghijklmnopqrstuvwxyz';
 var numEl = '0123456789';
@@ -29,7 +29,8 @@ generateBtn.addEventListener("click", function () {
   event.preventDefault();
   userInput();
   generateUserPass();
-  alert(generateUserPass());
+  generatePass();
+  alert(userPass);
 });
 
 function userInput() {
@@ -49,22 +50,27 @@ function userInput() {
 };
 
   function generateUserPass() {
-    if (lowercase) {
+    if (lowercase === true) {
       newpassword += lowerEl;
     }
-    if (uppercase) {
+    if (uppercase === true) {
       newpassword += upperEl;
     }
-    if (characters) {
+    if (characters === true) {
       newpassword += charEl;
     }
-    if (numbers) {
+    if (numbers === true) {
       newpassword += numEl;
     }
+
+    return newpassword;
+  }
+
+  function generatePass() {
+    var userPass = generateUserPass()
     for (let i = 0; i < passlength; i++) {
       userPass += newpassword.charAt(Math.floor(Math.random() * newpassword.length));
     }
-    return userPass;
-  };
+  }
 // // Add event listener to generate button
 // generateBtn.addEventListener("click", writePassword);
